@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 
+/* ===== Global ===== */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: monospace;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
   overflow: hidden;
   height: 100vh;
 }
@@ -18,24 +20,26 @@ body {
   flex-direction: column;
 }
 
+/* ===== Slides ===== */
 .slide {
   display: none;
   width: 100%;
   height: calc(100vh - 80px);
-  background: white;
+  background: #2b2b2b;
   padding: 60px;
   overflow-y: auto;
+  border-top: 2px solid #444;
 }
 
 .slide.active {
   display: block;
-  animation: slideIn 0.5s ease-out;
+  animation: slideIn 0.4s ease-out;
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(30px);
   }
 
   to {
@@ -44,73 +48,77 @@ body {
   }
 }
 
+/* ===== Headers ===== */
 .slide-header {
-  border-bottom: 4px solid #667eea;
-  padding-bottom: 20px;
-  margin-bottom: 40px;
+  border-bottom: 2px solid #555;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 h1 {
-  color: #667eea;
-  font-size: 2.5em;
-  margin-bottom: 10px;
+  color: #ff9800;
+  font-size: 2.4em;
 }
 
 h2 {
-  color: #764ba2;
+  color: #ff9800;
   font-size: 2em;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 h3 {
-  color: #667eea;
-  font-size: 1.5em;
-  margin: 20px 0 10px 0;
+  color: teal;
+  font-size: 1.4em;
+  margin: 20px 0 10px;
 }
 
 .subtitle {
-  color: #666;
-  font-size: 1.2em;
+  color: #999;
+  font-size: 1.1em;
   font-style: italic;
 }
 
 .authors {
-  margin-top: 30px;
-  font-size: 1.1em;
-  color: #444;
+  margin-top: 20px;
+  font-size: 1em;
+  color: #bbb;
 }
 
+/* ===== Content ===== */
 .content {
-  font-size: 1.1em;
+  font-size: 1.05em;
   line-height: 1.8;
-  color: #333;
+  color: #e0e0e0;
 }
 
 .two-column {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  margin-top: 20px;
 }
 
+/* ===== Highlight / Callouts ===== */
 .highlight-box {
-  background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+  background: #242424;
   padding: 20px;
-  border-radius: 10px;
-  border-left: 5px solid #667eea;
+  border-left: 5px solid #888;
+  border-radius: 4px;
   margin: 20px 0;
+  box-shadow: inset 0 0 0 1px #111;
 }
 
+/* ===== Lists ===== */
 .bullet-list {
   margin: 20px 0;
   padding-left: 20px;
 }
 
 .bullet-list li {
-  margin: 15px 0;
+  margin: 12px 0;
   line-height: 1.6;
 }
 
+/* ===== Feature Grid ===== */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -119,55 +127,57 @@ h3 {
 }
 
 .feature-card {
-  background: white;
+  background: #2b2b2b;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-top: 4px solid #667eea;
+  border: 2px solid #555;
+  box-shadow: inset 0 0 0 2px #111;
 }
 
 .feature-card h4 {
-  color: #667eea;
+  color: lightseagreen;
   margin-bottom: 10px;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/* ===== Controls ===== */
 .controls {
   height: 80px;
-  background: rgba(255, 255, 255, 0.95);
+  background: #1e1e1e;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-top: 2px solid #444;
 }
 
 .btn {
-  padding: 12px 30px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  border-radius: 5px;
+  padding: 10px 24px;
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border: 2px solid #666;
   cursor: pointer;
-  font-size: 1em;
-  transition: transform 0.2s;
+  font-family: monospace;
+  transition: background 0.2s;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  background: #333;
 }
 
 .btn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .slide-counter {
-  font-size: 1.1em;
-  color: #667eea;
+  font-size: 1em;
+  color: #aaa;
   font-weight: bold;
 }
 
+/* ===== Stats ===== */
 .stats {
   display: flex;
   justify-content: space-around;
@@ -176,25 +186,25 @@ h3 {
 
 .stat-box {
   text-align: center;
-  padding: 20px;
 }
 
 .stat-number {
-  font-size: 3em;
-  color: #667eea;
+  font-size: 2.6em;
+  color: #e0e0e0;
   font-weight: bold;
 }
 
 .stat-label {
-  color: #666;
-  margin-top: 10px;
+  color: #999;
+  margin-top: 8px;
 }
 
 .icon {
   font-size: 2em;
   margin-bottom: 10px;
+  color: #888;
 }
 
 strong {
-  color: #764ba2;
+  color: #ffffff;
 }

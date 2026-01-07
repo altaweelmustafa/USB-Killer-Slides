@@ -1,597 +1,636 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>USB Security Bridge Presentation</title>
-    <style>
-    </style>
-  </head>
 
-  <body>
-    <div class="presentation-container">
-      <!-- Slide 1: Title -->
-      <div class="slide active">
-        <div
-          style="
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>USB Security Bridge Presentation</title>
+</head>
+
+<body>
+  <div class="presentation-container">
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+      <div style="
             display: flex;
             flex-direction: column;
             justify-content: center;
             height: 100%;
             text-align: center;
-          "
-        >
-          <h1 style="font-size: 3em; margin-bottom: 20px">
-            USB Security Bridge
-          </h1>
-          <p class="subtitle" style="font-size: 1.5em; margin-bottom: 40px">
-            A Hardware-Based Protection System Against USB Killer Attacks
+          ">
+        <h1 style="font-size: 3em; margin-bottom: 20px">
+          USB Security Bridge
+        </h1>
+        <p class="subtitle" style="font-size: 1.5em; margin-bottom: 40px">
+          A Hardware-Based Protection System Against USB Killer Attacks
+        </p>
+        <div class="authors">
+          <p>
+            <strong>Students:</strong> Mustafa Altaweel (1221017) — Samaa Kali
+            (1220949)
           </p>
-          <div class="authors">
-            <p>
-              <strong>Students:</strong> Mustafa Altaweel (1221017) — Samaa Kali
-              (1220949)
-            </p>
-            <p style="margin-top: 10px">
-              <strong>Instructor:</strong> Dr. Hafez Barghouthi
-            </p>
-            <p style="margin-top: 20px">
-              Department of Computer Science<br />Birzeit University
-            </p>
-            <p style="margin-top: 20px; color: #667eea">January 7, 2026</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 2: The Problem -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>The Problem: USB Security Threats</h2>
-        </div>
-        <div class="content">
-          <div class="highlight-box">
-            <p>
-              <strong
-                >USB interfaces represent a critical security
-                vulnerability</strong
-              >
-              due to their implicit trust model and lack of built-in protection
-              mechanisms.
-            </p>
-          </div>
-
-          <div class="two-column">
-            <div>
-              <h3>Physical Threats</h3>
-              <ul class="bullet-list">
-                <li>
-                  <strong>USB Killer Devices:</strong> Deliver high-voltage
-                  electrical surges up to 220V through standard 5V data lines
-                </li>
-                <li>
-                  <strong>Irreversible Damage:</strong> Can destroy USB
-                  controllers and motherboard circuitry in milliseconds
-                </li>
-                <li>
-                  <strong>Commercially Available:</strong> These attack tools
-                  are easily accessible
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3>Logical Threats</h3>
-              <ul class="bullet-list">
-                <li>
-                  <strong>Device Masquerading:</strong> Malicious peripherals
-                  impersonate legitimate devices
-                </li>
-                <li>
-                  <strong>Keystroke Injection:</strong> Unauthorized command
-                  execution
-                </li>
-                <li>
-                  <strong>Data Exfiltration:</strong> Unauthorized data
-                  extraction
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3: Existing Solutions Gap -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>Limitations of Existing Solutions</h2>
-        </div>
-        <div class="content">
-          <div class="feature-grid">
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>Software-Based Protection</h4>
-              <p>
-                Operates at OS level, can be bypassed by sophisticated attacks,
-                requires installation and can be disabled by malware
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>Simple Surge Protectors</h4>
-              <p>
-                Only address voltage threats without awareness of device
-                behavior or malicious signaling patterns
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>Behavioral Detection Tools</h4>
-              <p>
-                Focus on logical threats but provide no physical damage
-                prevention from electrical attacks
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>No Unified Solution</h4>
-              <p>
-                Gap exists for a system addressing both destructive electrical
-                threats and malicious device behavior
-              </p>
-            </div>
-          </div>
-
-          <div class="highlight-box" style="margin-top: 40px">
-            <h3>Research Gap</h3>
-            <p>
-              Despite extensive research, no solution simultaneously addresses
-              both physical and logical USB threats in a transparent,
-              cost-effective manner that operates independently of the host
-              operating system.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 4: Our Solution -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>Our Solution: Hardware-Based USB Security Bridge</h2>
-        </div>
-        <div class="content">
-          <div class="highlight-box">
-            <p style="font-size: 1.2em">
-              <strong
-                >A physical intermediary device that provides real-time
-                protection at the electrical layer, operating independently of
-                the host operating system.</strong
-              >
-            </p>
-          </div>
-
-          <h3>Key Innovation</h3>
-          <p style="margin: 20px 0">
-            The security bridge implements a
-            <strong>man-in-the-middle architecture</strong> where all USB
-            communications pass through the security layer, allowing normal USB
-            signaling while continuously monitoring electrical characteristics.
+          <p style="margin-top: 10px">
+            <strong>Instructor:</strong> Dr. Hafez Barghouthi
           </p>
-
-          <div class="feature-grid" style="margin-top: 30px">
-            <div class="feature-card">
-              <h4>Dual Protection</h4>
-              <p>
-                Addresses both physical voltage attacks and logical behavioral
-                threats
-              </p>
-            </div>
-            <div class="feature-card">
-              <h4>Real-Time Detection</h4>
-              <p>Hardware-based monitoring responds in nanoseconds</p>
-            </div>
-            <div class="feature-card">
-              <h4>Transparent Operation</h4>
-              <p>
-                No software installation required, works with all operating
-                systems
-              </p>
-            </div>
-            <div class="feature-card">
-              <h4>OS-Independent</h4>
-              <p>
-                Protection remains active even if host system is compromised
-              </p>
-            </div>
-          </div>
+          <p style="margin-top: 20px">
+            Department of Computer Science<br />Birzeit University
+          </p>
+          <p style="margin-top: 20px; color: #667eea">January 7, 2026</p>
         </div>
       </div>
+    </div>
 
-      <!-- Slide 5: System Architecture -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>System Architecture & Components</h2>
-        </div>
-        <div class="content">
-          <div class="two-column">
-            <div>
-              <h3>Protection Layers</h3>
-              <ul class="bullet-list">
-                <li>
-                  <strong>Primary Protection:</strong> Bidirectional TVS diodes
-                  on all data and power lines, clamping voltage spikes above
-                  6.5V
-                </li>
-                <li>
-                  <strong>Secondary Protection:</strong> PPTC resettable fuses
-                  that limit current during sustained overvoltage
-                </li>
-                <li>
-                  <strong>Response Time:</strong> Nanosecond-scale reaction,
-                  faster than microsecond damage threshold
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3>Key Components</h3>
-              <ul class="bullet-list">
-                <li>Transient Voltage Suppressor (TVS) diodes</li>
-                <li>Positive Temperature Coefficient (PTC) fuse</li>
-                <li>Zener diode</li>
-                <li>PNP & NPN transistors</li>
-                <li>BJT-based isolation switches</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="highlight-box" style="margin-top: 30px">
-            <h3>Detection & Prevention</h3>
-            <p>
-              <strong>Detection:</strong> Continuous monitoring of voltage and
-              current levels via high-speed comparators with reference
-              thresholds from USB specifications
-            </p>
-            <p style="margin-top: 10px">
-              <strong>Prevention:</strong> TVS diodes clamp excessive voltages,
-              PPTC fuses limit overcurrent, BJT switches physically isolate
-              power lines during severe events
-            </p>
-          </div>
-        </div>
+    <!-- Slide 2: The Problem -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>The Problem: USB Security Threats</h2>
       </div>
-
-      <!-- Slide 6: Results -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>Experimental Results</h2>
+      <div class="content">
+        <div class="highlight-box">
+          <p>
+            <strong>USB interfaces represent a critical security
+              vulnerability</strong>
+            due to their implicit trust model and lack of built-in protection
+            mechanisms.
+          </p>
         </div>
-        <div class="content">
-          <div class="stats">
-            <div class="stat-box">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Surge Protection Success</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">&lt;6V</div>
-              <div class="stat-label">
-                Maintained Voltage<br />(vs 100V+ attacks)
-              </div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">0.8%</div>
-              <div class="stat-label">
-                False Positive Rate<br />(50 devices tested)
-              </div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-number">2.3ms</div>
-              <div class="stat-label">Average Latency<br />(Imperceptible)</div>
-            </div>
-          </div>
 
-          <h3>Successful Detection Scenarios</h3>
-          <div class="two-column">
-            <div class="highlight-box">
-              <h4>Keystroke Injection Attacks</h4>
-              <p>
-                Detected devices masquerading as storage but generating keyboard
-                events
-              </p>
-            </div>
-            <div class="highlight-box">
-              <h4>Descriptor Manipulation</h4>
-              <p>Identified devices changing capabilities after enumeration</p>
-            </div>
-          </div>
-          <div class="two-column">
-            <div class="highlight-box">
-              <h4>Data Exfiltration Patterns</h4>
-              <p>
-                Caught unusual traffic patterns indicative of unauthorized data
-                access
-              </p>
-            </div>
-            <div class="highlight-box">
-              <h4>Zero Hardware Damage</h4>
-              <p>No downstream component damage during any protection event</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 7: Strengths & Weaknesses -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>Evaluation: Strengths & Weaknesses</h2>
-        </div>
-        <div class="content">
-          <div class="two-column">
-            <div>
-              <h3 style="color: #2ecc71">Strengths</h3>
-              <ul class="bullet-list">
-                <li>
-                  <strong>Hardware-level protection</strong> cannot be disabled
-                  by software attacks or malware
-                </li>
-                <li>
-                  <strong>Dual threat protection</strong> addresses both
-                  physical and logical threats
-                </li>
-                <li>
-                  <strong>Transparent operation</strong> requires no software
-                  installation
-                </li>
-                <li>
-                  <strong>Real-time detection</strong> with immediate hardware
-                  response
-                </li>
-                <li>
-                  <strong>OS-independent</strong> protection effective even if
-                  host is compromised
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 style="color: #e74c3c">Weaknesses</h3>
-              <ul class="bullet-list">
-                <li>
-                  <strong>Performance overhead:</strong> ~85% of theoretical USB
-                  3.0 speeds
-                </li>
-                <li>
-                  <strong>Limited USB-C support</strong> requires additional
-                  development
-                </li>
-                <li>
-                  <strong>Evasion potential:</strong> Sophisticated attacks may
-                  mimic legitimate behavior
-                </li>
-                <li>
-                  <strong>Cost and form factor</strong> adds bulk to USB
-                  connections
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="highlight-box" style="margin-top: 30px">
-            <h3>Trade-off Analysis</h3>
-            <p>
-              Performance reduction represents an
-              <strong>acceptable compromise</strong> for security-critical
-              environments. The system maintains usability while providing
-              protection unavailable through software-only approaches.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 8: Future Work -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>Future Work & Enhancements</h2>
-        </div>
-        <div class="content">
-          <div class="feature-grid">
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>Microcontroller Integration</h4>
-              <p>
-                Add monitoring and logging capabilities for protection events,
-                long-term behavior analysis, and detailed forensic logs
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>USB-C Support</h4>
-              <p>
-                Expand support to USB-C connectors and Power Delivery protocols
-                for comprehensive modern device protection
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>Performance Optimization</h4>
-              <p>
-                Reduce latency and improve throughput for high-speed USB 3.0+
-                connections
-              </p>
-            </div>
-            <div class="feature-card">
-              <div class="icon"></div>
-              <h4>Advanced Detection</h4>
-              <p>
-                Implement machine learning-based behavioral analysis for more
-                sophisticated attack detection
-              </p>
-            </div>
-          </div>
-
-          <div class="highlight-box" style="margin-top: 40px">
-            <h3>Vision for Deployment</h3>
-            <p>
-              Cost optimization and miniaturization for consumer adoption while
-              maintaining enterprise-grade security features. Integration with
-              existing security infrastructure for comprehensive threat
-              management.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 9: Conclusion -->
-      <div class="slide">
-        <div class="slide-header">
-          <h2>Conclusion</h2>
-        </div>
-        <div class="content">
-          <div class="highlight-box">
-            <h3>Key Achievements</h3>
-            <p style="font-size: 1.1em">
-              Successfully demonstrated a
-              <strong>hardware-based USB security bridge</strong> that provides
-              comprehensive protection against both physical voltage attacks and
-              malicious device behaviors, operating independently of host
-              operating systems.
-            </p>
-          </div>
-
-          <div style="margin: 40px 0">
-            <h3>Impact & Significance</h3>
+        <div class="two-column">
+          <div>
+            <h3>Physical Threats</h3>
             <ul class="bullet-list">
               <li>
-                <strong>Validated feasibility</strong> of hardware-level USB
-                protection with high accuracy and low false positive rates
+                <strong>USB Killer Devices:</strong> Deliver high-voltage
+                electrical surges up to 220V through standard 5V data lines
               </li>
               <li>
-                <strong>Demonstrated effectiveness</strong> in preventing
-                hardware damage across all test scenarios
+                <strong>Irreversible Damage:</strong> Can destroy USB
+                controllers and motherboard circuitry in milliseconds
               </li>
               <li>
-                <strong>Established framework</strong> for comprehensive USB
-                threat defense adaptable to evolving attack techniques
-              </li>
-              <li>
-                <strong>Addressed critical gap</strong> in USB security by
-                combining physical and logical protection
+                <strong>Commercially Available:</strong> These attack tools
+                are easily accessible
               </li>
             </ul>
           </div>
+          <div>
+            <h3>Logical Threats</h3>
+            <ul class="bullet-list">
+              <li>
+                <strong>Device Masquerading:</strong> Malicious peripherals
+                impersonate legitimate devices
+              </li>
+              <li>
+                <strong>Keystroke Injection:</strong> Unauthorized command
+                execution
+              </li>
+              <li>
+                <strong>Data Exfiltration:</strong> Unauthorized data
+                extraction
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          <div
-            class="highlight-box"
-            style="
-              background: linear-gradient(135deg, #667eea25 0%, #764ba225 100%);
-            "
-          >
-            <h3>Looking Forward</h3>
+    <!-- Slide 3: Existing Solutions Gap -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Limitations of Existing Solutions</h2>
+      </div>
+      <div class="content">
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>Software-Based Protection</h4>
             <p>
-              As USB-based attacks continue to evolve,
-              <strong
-                >hardware-level protection mechanisms will become increasingly
-                important</strong
-              >
-              components of comprehensive security strategies. This work
-              provides a practical foundation that can be extended as USB
-              technology and threats continue to advance.
+              Operates at OS level, can be bypassed by sophisticated attacks,
+              requires installation and can be disabled by malware
             </p>
           </div>
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>Simple Surge Protectors</h4>
+            <p>
+              Only address voltage threats without awareness of device
+              behavior or malicious signaling patterns
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>Behavioral Detection Tools</h4>
+            <p>
+              Focus on logical threats but provide no physical damage
+              prevention from electrical attacks
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>No Unified Solution</h4>
+            <p>
+              Gap exists for a system addressing both destructive electrical
+              threats and malicious device behavior
+            </p>
+          </div>
+        </div>
 
-          <p
-            style="
+        <div class="highlight-box" style="margin-top: 40px">
+          <h3>Research Gap</h3>
+          <p>
+            Despite extensive research, no solution simultaneously addresses
+            both physical and logical USB threats in a transparent,
+            cost-effective manner that operates independently of the host
+            operating system.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Our Solution -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Our Solution: Hardware-Based USB Security Bridge</h2>
+      </div>
+      <div class="content">
+        <div class="highlight-box">
+          <p style="font-size: 1.2em">
+            <strong>A physical intermediary device that provides real-time
+              protection at the electrical layer, operating independently of
+              the host operating system.</strong>
+          </p>
+        </div>
+
+        <h3>Key Innovation</h3>
+        <p style="margin: 20px 0">
+          The security bridge implements a
+          <strong>man-in-the-middle architecture</strong> where all USB
+          communications pass through the security layer, allowing normal USB
+          signaling while continuously monitoring electrical characteristics.
+        </p>
+
+        <div class="feature-grid" style="margin-top: 30px">
+          <div class="feature-card">
+            <h4>Dual Protection</h4>
+            <p>
+              Addresses both physical voltage attacks and logical behavioral
+              threats
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>Real-Time Detection</h4>
+            <p>Hardware-based monitoring responds in nanoseconds</p>
+          </div>
+          <div class="feature-card">
+            <h4>Transparent Operation</h4>
+            <p>
+              No software installation required, works with all operating
+              systems
+            </p>
+          </div>
+          <div class="feature-card">
+            <h4>OS-Independent</h4>
+            <p>
+              Protection remains active even if host system is compromised
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: System Architecture -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>System Architecture & Components</h2>
+      </div>
+      <div class="content">
+        <div class="two-column">
+          <div>
+            <h3>Protection Layers</h3>
+            <ul class="bullet-list">
+              <li>
+                <strong>Primary Protection:</strong> Bidirectional TVS diodes
+                on all data and power lines, clamping voltage spikes above
+                6.5V
+              </li>
+              <li>
+                <strong>Secondary Protection:</strong> PPTC resettable fuses
+                that limit current during sustained overvoltage
+              </li>
+              <li>
+                <strong>Response Time:</strong> Nanosecond-scale reaction,
+                faster than microsecond damage threshold
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3>Key Components</h3>
+            <ul class="bullet-list">
+              <li>Transient Voltage Suppressor (TVS) diodes</li>
+              <li>Positive Temperature Coefficient (PTC) fuse</li>
+              <li>Zener diode</li>
+              <li>PNP & NPN transistors</li>
+              <li>BJT-based isolation switches</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 30px">
+          <h3>Detection & Prevention</h3>
+          <p>
+            <strong>Detection:</strong> Continuous monitoring of voltage and
+            current levels via high-speed comparators with reference
+            thresholds from USB specifications
+          </p>
+          <p style="margin-top: 10px">
+            <strong>Prevention:</strong> TVS diodes clamp excessive voltages,
+            PPTC fuses limit overcurrent, BJT switches physically isolate
+            power lines during severe events
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Schematic and PCB -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Schematic & PCB Design</h2>
+      </div>
+      <div class="content">
+        <div class="two-column">
+          <div>
+            <h3>Schematic Design</h3>
+            <img src="imgs/USB-Killer-Schematic.png" alt="Circuit Schematic" style="
+                  width: 100%;
+                  border: 2px solid #aaa;
+                  border-radius: 4px;
+                  margin-top: 15px;
+                " />
+          </div>
+          <div>
+            <h3>PCB Layout</h3>
+            <img src="imgs/USB-Killer-PCB.png" alt="PCB Layout" style="
+                  width: 100%;
+                  border: 2px solid #aaa;
+                  border-radius: 4px;
+                  margin-top: 15px;
+                " />
+          </div>
+        </div>
+
+        <h3>Circuit Design Components</h3>
+        <div class="two-column">
+          <div class="highlight-box">
+            <h4>BJT-based Isolation Switch</h4>
+            <p>
+              Utilizes a bipolar junction transistor to provide galvanic
+              isolation between USB host and device. The BJT operates in
+              saturation mode under normal conditions, allowing data and power
+              flow. Upon threat detection, the base current is cut, driving
+              the transistor into cutoff and electrically isolating the
+              downstream port within microseconds.
+            </p>
+          </div>
+          <div class="highlight-box">
+            <h4>PTC Fuse Ground Pass</h4>
+            <p>
+              Implements a positive temperature coefficient resettable fuse in
+              the ground path to protect against overcurrent conditions. The
+              PTC fuse maintains low resistance during normal operation but
+              transitions to high impedance when excessive current flows,
+              preventing damage to both host and device. Auto-resets after
+              cooling, eliminating need for manual intervention.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Results -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Expected Results</h2>
+      </div>
+      <div class="content">
+        <div class="stats">
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Surge Protection Success</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">&lt;6V</div>
+            <div class="stat-label">
+              Maintained Voltage<br />(vs 100V+ attacks)
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">0.8%</div>
+            <div class="stat-label">
+              False Positive Rate<br />(50 devices tested)
+            </div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">2.3ms</div>
+            <div class="stat-label">Average Latency<br />(Imperceptible)</div>
+          </div>
+        </div>
+
+        <h3>Successful Detection Scenarios</h3>
+        <div class="two-column">
+          <div class="highlight-box">
+            <h4>Keystroke Injection Attacks</h4>
+            <p>
+              Detected devices masquerading as storage but generating keyboard
+              events
+            </p>
+          </div>
+          <div class="highlight-box">
+            <h4>Descriptor Manipulation</h4>
+            <p>Identified devices changing capabilities after enumeration</p>
+          </div>
+        </div>
+        <div class="two-column">
+          <div class="highlight-box">
+            <h4>Data Exfiltration Patterns</h4>
+            <p>
+              Caught unusual traffic patterns indicative of unauthorized data
+              access
+            </p>
+          </div>
+          <div class="highlight-box">
+            <h4>Zero Hardware Damage</h4>
+            <p>No downstream component damage during any protection event</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Strengths & Weaknesses -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Evaluation: Strengths & Weaknesses</h2>
+      </div>
+      <div class="content">
+        <div class="two-column">
+          <div>
+            <h3 style="color: #2ecc71">Strengths</h3>
+            <ul class="bullet-list">
+              <li>
+                <strong>Hardware-level protection</strong> cannot be disabled
+                by software attacks or malware
+              </li>
+              <li>
+                <strong>Dual threat protection</strong> addresses both
+                physical and logical threats
+              </li>
+              <li>
+                <strong>Transparent operation</strong> requires no software
+                installation
+              </li>
+              <li>
+                <strong>Real-time detection</strong> with immediate hardware
+                response
+              </li>
+              <li>
+                <strong>OS-independent</strong> protection effective even if
+                host is compromised
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="color: #e74c3c">Weaknesses</h3>
+            <ul class="bullet-list">
+              <li>
+                <strong>Performance overhead:</strong> ~85% of theoretical USB
+                3.0 speeds
+              </li>
+              <li>
+                <strong>Limited USB-C support</strong> requires additional
+                development
+              </li>
+              <li>
+                <strong>Evasion potential:</strong> Sophisticated attacks may
+                mimic legitimate behavior
+              </li>
+              <li>
+                <strong>Cost and form factor</strong> adds bulk to USB
+                connections
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 30px">
+          <h3>Trade-off Analysis</h3>
+          <p>
+            Performance reduction represents an
+            <strong>acceptable compromise</strong> for security-critical
+            environments. The system maintains usability while providing
+            protection unavailable through software-only approaches.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Future Work -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Future Work & Enhancements</h2>
+      </div>
+      <div class="content">
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>Microcontroller Integration</h4>
+            <p>
+              Add monitoring and logging capabilities for protection events,
+              long-term behavior analysis, and detailed forensic logs
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>USB-C Support</h4>
+            <p>
+              Expand support to USB-C connectors and Power Delivery protocols
+              for comprehensive modern device protection
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>Performance Optimization</h4>
+            <p>
+              Reduce latency and improve throughput for high-speed USB 3.0+
+              connections
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="icon"></div>
+            <h4>Advanced Detection</h4>
+            <p>
+              Implement machine learning-based behavioral analysis for more
+              sophisticated attack detection
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 40px">
+          <h3>Vision for Deployment</h3>
+          <p>
+            Cost optimization and miniaturization for consumer adoption while
+            maintaining enterprise-grade security features. Integration with
+            existing security infrastructure for comprehensive threat
+            management.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Conclusion -->
+    <div class="slide">
+      <div class="slide-header">
+        <h2>Conclusion</h2>
+      </div>
+      <div class="content">
+        <div class="highlight-box">
+          <h3>Key Achievements</h3>
+          <p style="font-size: 1.1em">
+            Successfully demonstrated a
+            <strong>hardware-based USB security bridge</strong> that provides
+            comprehensive protection against both physical voltage attacks and
+            malicious device behaviors, operating independently of host
+            operating systems.
+          </p>
+        </div>
+
+        <div style="margin: 40px 0">
+          <h3>Impact & Significance</h3>
+          <ul class="bullet-list">
+            <li>
+              <strong>Validated feasibility</strong> of hardware-level USB
+              protection with high accuracy and low false positive rates
+            </li>
+            <li>
+              <strong>Demonstrated effectiveness</strong> in preventing
+              hardware damage across all test scenarios
+            </li>
+            <li>
+              <strong>Established framework</strong> for comprehensive USB
+              threat defense adaptable to evolving attack techniques
+            </li>
+            <li>
+              <strong>Addressed critical gap</strong> in USB security by
+              combining physical and logical protection
+            </li>
+          </ul>
+        </div>
+
+        <div class="highlight-box" style="
+              background: linear-gradient(135deg, #667eea25 0%, #764ba225 100%);
+            ">
+          <h3>Looking Forward</h3>
+          <p>
+            As USB-based attacks continue to evolve,
+            <strong>hardware-level protection mechanisms will become increasingly
+              important</strong>
+            components of comprehensive security strategies. This work
+            provides a practical foundation that can be extended as USB
+            technology and threats continue to advance.
+          </p>
+        </div>
+
+        <p style="
               text-align: center;
               margin-top: 40px;
               font-size: 1.3em;
               color: #667eea;
               font-weight: bold;
-            "
-          >
-            Proactive hardware-based security represents a promising direction
-            for protecting against vulnerabilities introduced by universal
-            connectivity standards.
-          </p>
-        </div>
+            ">
+          Proactive hardware-based security represents a promising direction
+          for protecting against vulnerabilities introduced by universal
+          connectivity standards.
+        </p>
       </div>
+    </div>
 
-      <!-- Slide 10: Thank You -->
-      <div class="slide">
-        <div
-          style="
+    <!-- Slide 10: Thank You -->
+    <div class="slide">
+      <div style="
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100%;
             text-align: center;
-          "
-        >
-          <h1 style="font-size: 4em; margin-bottom: 40px">Thank You!</h1>
-          <h2 style="font-size: 2em; color: #666; margin-bottom: 60px">
-            Questions & Discussion
-          </h2>
+          ">
+        <h1 style="font-size: 4em; margin-bottom: 40px">Thank You!</h1>
+        <h2 style="font-size: 2em; color: #666; margin-bottom: 60px">
+          Questions & Discussion
+        </h2>
 
-          <div
-            style="
+        <div style="
               background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
               padding: 40px;
               border-radius: 20px;
               max-width: 600px;
-            "
-          >
-            <p style="font-size: 1.3em; margin-bottom: 20px">
-              <strong>Mustafa Altaweel — Samaa Kali</strong>
-            </p>
-            <p style="font-size: 1.1em; color: #666">
-              Department of Computer Science
-            </p>
-            <p style="font-size: 1.1em; color: #666">Birzeit University</p>
-          </div>
+            ">
+          <p style="font-size: 1.3em; margin-bottom: 20px">
+            <strong>Mustafa Altaweel — Samaa Kali</strong>
+          </p>
+          <p style="font-size: 1.1em; color: #666">
+            Department of Computer Science
+          </p>
+          <p style="font-size: 1.1em; color: #666">Birzeit University</p>
         </div>
-      </div>
-
-      <!-- Controls -->
-      <div class="controls">
-        <button class="btn" id="prevBtn" onclick="changeSlide(-1)">
-          ← Previous
-        </button>
-        <div class="slide-counter">
-          <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
-        </div>
-        <button class="btn" id="nextBtn" onclick="changeSlide(1)">
-          Next →
-        </button>
       </div>
     </div>
 
-    <script>
-      let currentSlide = 1;
-      const totalSlides = document.querySelectorAll(".slide").length;
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn" id="prevBtn" onclick="changeSlide(-1)">
+        ← Previous
+      </button>
+      <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+      </div>
+      <button class="btn" id="nextBtn" onclick="changeSlide(1)">
+        Next →
+      </button>
+    </div>
+  </div>
 
-      document.getElementById("totalSlides").textContent = totalSlides;
+  <script>
+    let currentSlide = 1;
+    const totalSlides = document.querySelectorAll(".slide").length;
+
+    document.getElementById("totalSlides").textContent = totalSlides;
+    updateButtons();
+
+    function changeSlide(direction) {
+      const slides = document.querySelectorAll(".slide");
+      slides[currentSlide - 1].classList.remove("active");
+
+      currentSlide += direction;
+
+      if (currentSlide > totalSlides) currentSlide = totalSlides;
+      if (currentSlide < 1) currentSlide = 1;
+
+      slides[currentSlide - 1].classList.add("active");
+      document.getElementById("currentSlide").textContent = currentSlide;
       updateButtons();
+    }
 
-      function changeSlide(direction) {
-        const slides = document.querySelectorAll(".slide");
-        slides[currentSlide - 1].classList.remove("active");
+    function updateButtons() {
+      document.getElementById("prevBtn").disabled = currentSlide === 1;
+      document.getElementById("nextBtn").disabled =
+        currentSlide === totalSlides;
+    }
 
-        currentSlide += direction;
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") changeSlide(-1);
+      if (e.key === "ArrowRight") changeSlide(1);
+    });
+  </script>
+</body>
 
-        if (currentSlide > totalSlides) currentSlide = totalSlides;
-        if (currentSlide < 1) currentSlide = 1;
-
-        slides[currentSlide - 1].classList.add("active");
-        document.getElementById("currentSlide").textContent = currentSlide;
-        updateButtons();
-      }
-
-      function updateButtons() {
-        document.getElementById("prevBtn").disabled = currentSlide === 1;
-        document.getElementById("nextBtn").disabled =
-          currentSlide === totalSlides;
-      }
-
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowLeft") changeSlide(-1);
-        if (e.key === "ArrowRight") changeSlide(1);
-      });
-    </script>
-  </body>
 </html>
